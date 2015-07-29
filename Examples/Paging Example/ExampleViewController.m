@@ -18,7 +18,9 @@
 
 
 @implementation ExampleViewController
-
+{
+    NSArray *types;
+}
 - (void)awakeFromNib
 {
     //set up data
@@ -31,6 +33,7 @@
     {
         [_items addObject:@(i)];
     }
+    types = @[@(YES), @(NO), @(YES), @(NO), @(YES), @(NO), @(YES), @(NO), @(YES), @(NO), @(YES), @(NO)];
 }
 
 - (void)dealloc
@@ -65,11 +68,17 @@
 - (NSInteger)numberOfItemsInSwipeView:(SwipeView *)swipeView
 {
     //return the total number of items in the carousel
-    return [_items count];
+    return [types count];
 }
 
-- (UIView *)swipeView:(SwipeView *)swipeView viewForItemAtIndex:(NSInteger)index reusingView:(UIView *)view
+- (UIView *)swipeView:(SwipeView *)swipeView viewForItemAtIndex:(NSInteger)index
 {
+    BOOL type = [types[index] boolValue];
+    UIView *view = [swipeView dequeueReusableViewWithIdentifier:type?@"YES":@"NO"];
+    if (view == nil)
+    {
+        NSLog(@"can not found reusabledView");
+    }
     UILabel *label = nil;
     
     //create new view if no view is available for recycling
@@ -88,28 +97,16 @@
         label.font = [label.font fontWithSize:50];
         label.tag = 1;
         [view addSubview:label];
+        
+        [view setSwipeViewReseIdentifier:type?@"YES":@"NO"];
+        
+        view.backgroundColor = type?[UIColor purpleColor]:[UIColor lightGrayColor];
     }
     else
     {
         //get a reference to the label in the recycled view
         label = (UILabel *)[view viewWithTag:1];
     }
-
-    //set background color
-    CGFloat red = arc4random() / (CGFloat)INT_MAX;
-    CGFloat green = arc4random() / (CGFloat)INT_MAX;
-    CGFloat blue = arc4random() / (CGFloat)INT_MAX;
-    view.backgroundColor = [UIColor colorWithRed:red
-                                           green:green
-                                            blue:blue
-                                           alpha:1.0];
-    
-    //set item label
-    //remember to always set any properties of your carousel item
-    //views outside of the `if (view == nil) {...}` check otherwise
-    //you'll get weird issues with carousel item content appearing
-    //in the wrong place in the carousel
-    label.text = [_items[index] stringValue];
     
     return view;
 }

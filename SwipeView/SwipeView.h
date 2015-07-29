@@ -59,8 +59,8 @@ typedef NS_ENUM(NSUInteger, SwipeViewAlignment)
 
 @interface SwipeView : UIView
 
-@property (nonatomic, weak_delegate) IBOutlet id<SwipeViewDataSource> dataSource;
-@property (nonatomic, weak_delegate) IBOutlet id<SwipeViewDelegate> delegate;
+@property (nonatomic, weak_delegate) id<SwipeViewDataSource> dataSource;
+@property (nonatomic, weak_delegate) id<SwipeViewDelegate> delegate;
 @property (nonatomic, readonly) NSInteger numberOfItems;
 @property (nonatomic, readonly) NSInteger numberOfPages;
 @property (nonatomic, readonly) CGSize itemSize;
@@ -97,13 +97,14 @@ typedef NS_ENUM(NSUInteger, SwipeViewAlignment)
 - (NSInteger)indexOfItemView:(UIView *)view;
 - (NSInteger)indexOfItemViewOrSubview:(UIView *)view;
 
+- (UIView *)dequeueReusableViewWithIdentifier:(NSString *)identifier;
 @end
 
 
 @protocol SwipeViewDataSource <NSObject>
 
 - (NSInteger)numberOfItemsInSwipeView:(SwipeView *)swipeView;
-- (UIView *)swipeView:(SwipeView *)swipeView viewForItemAtIndex:(NSInteger)index reusingView:(UIView *)view;
+- (UIView *)swipeView:(SwipeView *)swipeView viewForItemAtIndex:(NSInteger)index;
 
 @end
 
@@ -124,6 +125,10 @@ typedef NS_ENUM(NSUInteger, SwipeViewAlignment)
 
 @end
 
+@interface UIView (SwipeViewIdentifier)
 
+- (void)setSwipeViewReseIdentifier:(NSString *)identifer;
+- (NSString *)swipeViewReseIdentifier;
+@end
 #pragma GCC diagnostic pop
 

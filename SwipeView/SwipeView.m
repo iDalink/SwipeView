@@ -69,7 +69,10 @@
 
 @property (nonatomic, strong) UIScrollView *scrollView;
 @property (nonatomic, strong) NSMutableDictionary *itemViews;
-@property (nonatomic, strong) NSMutableSet *itemViewPool;
+/**
+ *  {identifier:@(view1, view2)}
+ */
+@property (nonatomic, strong) NSMutableDictionary *itemViewPool;
 @property (nonatomic, assign) NSInteger previousItemIndex;
 @property (nonatomic, assign) CGPoint previousContentOffset;
 @property (nonatomic, assign) CGSize itemSize;
@@ -586,16 +589,42 @@
 {
     if (view)
     {
-        [_itemViewPool addObject:view];
+        NSString *resuIdentifier = [view swipeViewReseIdentifier];
+        
+        if (resuIdentifier != nil)
+        {
+            NSMutableSet *set = _itemViewPool[resuIdentifier];
+            if (set == nil)
+            {
+                set = [NSMutableSet set];
+                _itemViewPool[resuIdentifier] = set;
+            }
+            [set addObject:view];
+        }
     }
 }
 
-- (UIView *)dequeueItemView
+- (UIView *)dequeueReusableViewWithIdentifier:(NSString *)identifier
 {
-    UIView *view = [_itemViewPool anyObject];
-    if (view)
+    return [self dequeueItemView:identifier];
+}
+
+- (UIView *)dequeueItemView:(NSString *)identifier
+{
+    UIView *view = nil;
+    
+    if (identifier != nil)
     {
-        [_itemViewPool removeObject:view];
+        NSMutableSet *set = _itemViewPool[identifier];
+        if (set != nil)
+        {
+            view = [set anyObject];
+            
+            if (view != nil)
+            {
+                [set removeObject:view];
+            }
+        }
     }
     return view;
 }
@@ -880,7 +909,7 @@
 
 - (UIView *)loadViewAtIndex:(NSInteger)index
 {
-    UIView *view = [_dataSource swipeView:self viewForItemAtIndex:index reusingView:[self dequeueItemView]];
+    UIView *view = [_dataSource swipeView:self viewForItemAtIndex:index];
     if (view == nil)
     {
         view = [[UIView alloc] init];
@@ -914,7 +943,7 @@
     }
     else if (_numberOfItems > 0)
     {
-        UIView *view = [[self visibleItemViews] lastObject] ?: [_dataSource swipeView:self viewForItemAtIndex:0 reusingView:[self dequeueItemView]];
+        UIView *view = [[self visibleItemViews] lastObject] ?: [_dataSource swipeView:self viewForItemAtIndex:0];
         _itemSize = view.frame.size;
     }
     
@@ -996,7 +1025,7 @@
     
     //reset view pools
     self.itemViews = [NSMutableDictionary dictionary];
-    self.itemViewPool = [NSMutableSet set];
+    self.itemViewPool = [NSMutableDictionary dictionary];
     
     //get number of items
     [self updateItemSizeAndCount];
@@ -1197,4 +1226,19 @@
     [_delegate swipeViewDidEndDecelerating:self];
 }
 
+@end
+
+#import <objc/runtime.h>
+
+@implementation UIView (SwipeViewIdentifier)
+
+- (void)setSwipeViewReseIdentifier:(NSString *)identifer
+{
+    objc_setAssociatedObject(self, "SwipeViewResuKey", identifer, OBJC_ASSOCIATION_COPY);
+}
+
+- (NSString *)swipeViewReseIdentifier
+{
+    return objc_getAssociatedObject(self, "SwipeViewResuKey");
+}
 @end
