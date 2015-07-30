@@ -98,6 +98,8 @@ typedef NS_ENUM(NSUInteger, SwipeViewAlignment)
 - (NSInteger)indexOfItemViewOrSubview:(UIView *)view;
 
 - (UIView *)dequeueReusableViewWithIdentifier:(NSString *)identifier;
+
+- (void)releaseResuableView;
 @end
 
 

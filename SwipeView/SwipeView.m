@@ -630,6 +630,11 @@
 }
 
 
+- (void)releaseResuableView
+{
+    [_itemViewPool removeAllObjects];
+}
+
 #pragma mark -
 #pragma mark Scrolling
 
