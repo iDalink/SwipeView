@@ -1,3 +1,56 @@
+
+My Modify
+--------------
+The original SwipeView always returns a cached view when trying to retrieve a view.
+
+    //when view differ from default
+    - (UIView *)swipeView:(SwipeView *)swipeView viewForItemAtIndex:(NSInteger)index reusingView:(UIView *)view;
+
+Changes to:
+
+    - (UIView *)swipeView:(SwipeView *)swipeView viewForItemAtIndex:(NSInteger)index;
+
+To get the cached view:
+
+    UIView *view = [swipeView dequeueReusableViewWithIdentifier:type?@"YES":@"NO"];
+
+When a new view is created, an id has to be set or else the view will not be cached by SwipeView
+To set an id:
+
+   [view setSwipeViewReuseIdentifier:@"identifier"];
+
+A short demo:
+
+    - (UIView *)swipeView:(SwipeView *)swipeView viewForItemAtIndex:(NSInteger)index
+    {
+        static NSString *iden = @“identifier”;
+
+        UILabel *view = (UILabel *)[swipeView dequeueReusableViewWithIdentifier:iden] ;
+
+        //create new view if no view is available for recycling
+        if (view == nil)
+        {
+            view = [[UIView alloc] initWithFrame:self.swipeView.bounds];
+
+            //adding reuse id
+
+            [view setSwipeViewReuseIdentifier:iden];
+        }
+
+        view.text = @"Hello";
+
+        return view;
+    ｝
+
+When a SwipeView use up too much memory, use the following method.
+
+    - (void)releaseResuableView;
+
+Please check out the demo for more.
+
+Origin README
+--------------
+
 Purpose
 --------------
 
