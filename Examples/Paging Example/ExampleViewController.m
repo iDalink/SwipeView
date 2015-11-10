@@ -115,5 +115,11 @@
 {
     return self.swipeView.bounds.size;
 }
+- (IBAction)clearSwipeViewCache:(id)sender {
+    [self.swipeView releaseResuableView];
+}
+- (IBAction)reload:(id)sender {
+    [self.swipeView reloadData];
+}
 
 @end

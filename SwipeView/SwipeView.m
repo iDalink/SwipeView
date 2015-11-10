@@ -130,6 +130,7 @@
     _currentItemIndex = 0;
     _numberOfItems = 0;
     
+    self.itemViewPool = [NSMutableDictionary dictionary];
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTap:)];
     tapGesture.delegate = self;
     [_scrollView addGestureRecognizer:tapGesture];
@@ -1017,6 +1018,9 @@
 
 - (void)reloadData
 {
+    if (self.currentItemView != nil) {
+        [self queueItemView:self.currentItemView];
+    }
     //remove old views
     for (UIView *view in self.visibleItemViews)
     {
@@ -1025,7 +1029,6 @@
     
     //reset view pools
     self.itemViews = [NSMutableDictionary dictionary];
-    self.itemViewPool = [NSMutableDictionary dictionary];
     
     //get number of items
     [self updateItemSizeAndCount];
