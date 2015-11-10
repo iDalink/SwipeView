@@ -942,15 +942,10 @@
     
     //get item size
     CGSize size = [_delegate swipeViewItemSize:self];
-    if (!CGSizeEqualToSize(size, CGSizeZero))
-    {
-        _itemSize = size;
+    if (CGSizeEqualToSize(size, CGSizeZero)) {
+        size = self.bounds.size;
     }
-    else if (_numberOfItems > 0)
-    {
-        UIView *view = [[self visibleItemViews] lastObject] ?: [_dataSource swipeView:self viewForItemAtIndex:0];
-        _itemSize = view.frame.size;
-    }
+    _itemSize = size;
     
     //prevent crashes
     if (_itemSize.width < 0.0001) _itemSize.width = 1;
