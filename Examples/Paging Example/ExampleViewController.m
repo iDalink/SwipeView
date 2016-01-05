@@ -103,10 +103,13 @@
     return view;
 }
 
+//if you don`t implement 'swipeViewItemSize' protocol, SwipeView uses its size as item view size.
+/*
 - (CGSize)swipeViewItemSize:(SwipeView *)swipeView
 {
     return self.swipeView.bounds.size;
 }
+ */
 - (IBAction)clearSwipeViewCache:(id)sender {
     [self.swipeView releaseResuableView];
 }
