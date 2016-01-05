@@ -7,12 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@class ExampleViewController;
-
 @interface AppDelegate : NSObject <UIApplicationDelegate>
 
 @property (nonatomic, strong) IBOutlet UIWindow *window;
-@property (nonatomic, strong) IBOutlet ExampleViewController *viewController;
 
 @end

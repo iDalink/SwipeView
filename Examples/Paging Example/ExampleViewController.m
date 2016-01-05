@@ -21,20 +21,6 @@
 {
     NSArray *types;
 }
-- (void)awakeFromNib
-{
-    //set up data
-    //your swipeView should always be driven by an array of
-    //data of some kind - don't store data in your item views
-    //or the recycling mechanism will destroy your data once
-    //your item views move off-screen
-    self.items = [NSMutableArray array];
-    for (int i = 0; i < 100; i++)
-    {
-        [_items addObject:@(i)];
-    }
-    types = @[@(YES), @(NO), @(YES), @(NO), @(YES), @(NO), @(YES), @(NO), @(YES), @(NO), @(YES), @(NO)];
-}
 
 - (void)dealloc
 {
@@ -53,6 +39,12 @@
 {
     [super viewDidLoad];
     
+    self.items = [NSMutableArray array];
+    for (int i = 0; i < 100; i++)
+    {
+        [_items addObject:@(i)];
+    }
+    types = @[@(YES), @(NO), @(YES), @(NO), @(YES), @(NO), @(YES), @(NO), @(YES), @(NO), @(YES), @(NO)];
     //configure swipeView
     _swipeView.pagingEnabled = YES;
 }

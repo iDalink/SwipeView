@@ -18,6 +18,15 @@
 		0148359513A36C3700E687AC /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0148358F13A36C3700E687AC /* MainWindow.xib */; };
 		0148359613A36C3700E687AC /* ExampleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0148359113A36C3700E687AC /* ExampleViewController.xib */; };
 		01715D4917FD6D980060B615 /* SwipeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01715D4817FD6D980060B615 /* SwipeView.m */; };
+		171061841C3BDAE300BBF297 /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 171061821C3BDAE300BBF297 /* ListViewController.m */; };
+		171061851C3BDAE300BBF297 /* ListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 171061831C3BDAE300BBF297 /* ListViewController.xib */; };
+		171061891C3BE0B400BBF297 /* GalleryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 171061871C3BE0B400BBF297 /* GalleryViewController.m */; };
+		1710618A1C3BE0B400BBF297 /* GalleryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 171061881C3BE0B400BBF297 /* GalleryViewController.xib */; };
+		171061911C3BE41000BBF297 /* image1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1710618C1C3BE41000BBF297 /* image1.jpg */; };
+		171061921C3BE41000BBF297 /* image2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1710618D1C3BE41000BBF297 /* image2.jpg */; };
+		171061931C3BE41000BBF297 /* image3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1710618E1C3BE41000BBF297 /* image3.jpg */; };
+		171061941C3BE41000BBF297 /* image4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1710618F1C3BE41000BBF297 /* image4.jpg */; };
+		171061951C3BE41000BBF297 /* image5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 171061901C3BE41000BBF297 /* image5.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +48,17 @@
 		01715D4A17FD6F070060B615 /* SwipeViewExample-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "SwipeViewExample-Info.plist"; sourceTree = SOURCE_ROOT; };
 		01715D4B17FD6F070060B615 /* SwipeViewExample-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SwipeViewExample-Prefix.pch"; sourceTree = SOURCE_ROOT; };
 		018BBCB413A375AF005CA505 /* SwipeViewExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwipeViewExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		171061811C3BDAE300BBF297 /* ListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListViewController.h; sourceTree = SOURCE_ROOT; };
+		171061821C3BDAE300BBF297 /* ListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListViewController.m; sourceTree = SOURCE_ROOT; };
+		171061831C3BDAE300BBF297 /* ListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListViewController.xib; sourceTree = SOURCE_ROOT; };
+		171061861C3BE0B400BBF297 /* GalleryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GalleryViewController.h; sourceTree = SOURCE_ROOT; };
+		171061871C3BE0B400BBF297 /* GalleryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GalleryViewController.m; sourceTree = SOURCE_ROOT; };
+		171061881C3BE0B400BBF297 /* GalleryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GalleryViewController.xib; sourceTree = SOURCE_ROOT; };
+		1710618C1C3BE41000BBF297 /* image1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image1.jpg; sourceTree = "<group>"; };
+		1710618D1C3BE41000BBF297 /* image2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image2.jpg; sourceTree = "<group>"; };
+		1710618E1C3BE41000BBF297 /* image3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image3.jpg; sourceTree = "<group>"; };
+		1710618F1C3BE41000BBF297 /* image4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image4.jpg; sourceTree = "<group>"; };
+		171061901C3BE41000BBF297 /* image5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image5.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,9 +111,15 @@
 				0148358E13A36C3700E687AC /* AppDelegate.h */,
 				0148358D13A36C3700E687AC /* AppDelegate.m */,
 				0148358F13A36C3700E687AC /* MainWindow.xib */,
+				171061811C3BDAE300BBF297 /* ListViewController.h */,
+				171061821C3BDAE300BBF297 /* ListViewController.m */,
+				171061831C3BDAE300BBF297 /* ListViewController.xib */,
 				0148358C13A36C3700E687AC /* ExampleViewController.h */,
 				0148358B13A36C3700E687AC /* ExampleViewController.m */,
 				0148359113A36C3700E687AC /* ExampleViewController.xib */,
+				171061861C3BE0B400BBF297 /* GalleryViewController.h */,
+				171061871C3BE0B400BBF297 /* GalleryViewController.m */,
+				171061881C3BE0B400BBF297 /* GalleryViewController.xib */,
 				01308D9913491C3500453707 /* Supporting Files */,
 			);
 			name = SwipeViewExample;
@@ -103,6 +129,7 @@
 		01308D9913491C3500453707 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				1710618B1C3BE41000BBF297 /* images */,
 				013F5C5F168A59F500355CAD /* Default-568h@2x.png */,
 				0148358313A36C2000E687AC /* main.m */,
 				01715D4A17FD6F070060B615 /* SwipeViewExample-Info.plist */,
@@ -121,6 +148,18 @@
 			name = SwipeView;
 			path = ../../SwipeView;
 			sourceTree = "<group>";
+		};
+		1710618B1C3BE41000BBF297 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				1710618C1C3BE41000BBF297 /* image1.jpg */,
+				1710618D1C3BE41000BBF297 /* image2.jpg */,
+				1710618E1C3BE41000BBF297 /* image3.jpg */,
+				1710618F1C3BE41000BBF297 /* image4.jpg */,
+				171061901C3BE41000BBF297 /* image5.jpg */,
+			);
+			path = images;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -172,9 +211,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1710618A1C3BE0B400BBF297 /* GalleryViewController.xib in Resources */,
+				171061951C3BE41000BBF297 /* image5.jpg in Resources */,
 				0148359513A36C3700E687AC /* MainWindow.xib in Resources */,
 				0148359613A36C3700E687AC /* ExampleViewController.xib in Resources */,
+				171061851C3BDAE300BBF297 /* ListViewController.xib in Resources */,
 				013F5C60168A59F500355CAD /* Default-568h@2x.png in Resources */,
+				171061941C3BE41000BBF297 /* image4.jpg in Resources */,
+				171061911C3BE41000BBF297 /* image1.jpg in Resources */,
+				171061921C3BE41000BBF297 /* image2.jpg in Resources */,
+				171061931C3BE41000BBF297 /* image3.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -185,10 +231,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				171061841C3BDAE300BBF297 /* ListViewController.m in Sources */,
 				0148358813A36C2000E687AC /* main.m in Sources */,
 				0148359313A36C3700E687AC /* ExampleViewController.m in Sources */,
 				0148359413A36C3700E687AC /* AppDelegate.m in Sources */,
 				01715D4917FD6D980060B615 /* SwipeView.m in Sources */,
+				171061891C3BE0B400BBF297 /* GalleryViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
