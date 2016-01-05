@@ -102,7 +102,7 @@
     _bounces = YES;
     _wrapEnabled = NO;
     _itemsPerPage = 1;
-    _truncateFinalPage = NO;
+    _truncateFinalPage = YES;
     _defersItemViewLoading = NO;
     _vertical = NO;
     

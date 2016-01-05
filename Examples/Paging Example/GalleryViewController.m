@@ -23,7 +23,6 @@
     _items = [@[@"image1.jpg", @"image2.jpg", @"image3.jpg", @"image4.jpg", @"image5.jpg"] mutableCopy];
     _swipeView.dataSource = self;
     _swipeView.delegate = self;
-    _swipeView.truncateFinalPage = YES;
 }
 
 - (NSInteger)numberOfItemsInSwipeView:(SwipeView *)swipeView
