@@ -9,6 +9,7 @@
 #import "ListViewController.h"
 #import "ExampleViewController.h"
 #import "GalleryViewController.h"
+#import "CardViewController.h"
 
 @interface ListViewController () <UITableViewDataSource, UITableViewDelegate> {
     
@@ -31,7 +32,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 2;
+    return 3;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -42,6 +43,9 @@
     if (indexPath.row == 1) {
         cell.textLabel.text = @"小图模式展示，视图资源回收";
     }
+    if (indexPath.row == 2) {
+        cell.textLabel.text = @"卡片视图展示，展示边距效果";
+    }
     return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -51,6 +55,10 @@
     }
     if (indexPath.row == 1) {
         GalleryViewController *vc = [[GalleryViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    if (indexPath.row == 2) {
+        CardViewController *vc = [[CardViewController alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
     }
 }

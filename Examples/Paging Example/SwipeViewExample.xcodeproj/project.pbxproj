@@ -27,6 +27,8 @@
 		171061931C3BE41000BBF297 /* image3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1710618E1C3BE41000BBF297 /* image3.jpg */; };
 		171061941C3BE41000BBF297 /* image4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1710618F1C3BE41000BBF297 /* image4.jpg */; };
 		171061951C3BE41000BBF297 /* image5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 171061901C3BE41000BBF297 /* image5.jpg */; };
+		33D4DC211F1F8EDF0065C545 /* CardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33D4DC1F1F1F8EDF0065C545 /* CardViewController.m */; };
+		33D4DC221F1F8EDF0065C545 /* CardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33D4DC201F1F8EDF0065C545 /* CardViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +61,9 @@
 		1710618E1C3BE41000BBF297 /* image3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image3.jpg; sourceTree = "<group>"; };
 		1710618F1C3BE41000BBF297 /* image4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image4.jpg; sourceTree = "<group>"; };
 		171061901C3BE41000BBF297 /* image5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image5.jpg; sourceTree = "<group>"; };
+		33D4DC1E1F1F8EDF0065C545 /* CardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardViewController.h; sourceTree = SOURCE_ROOT; };
+		33D4DC1F1F1F8EDF0065C545 /* CardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardViewController.m; sourceTree = SOURCE_ROOT; };
+		33D4DC201F1F8EDF0065C545 /* CardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CardViewController.xib; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +125,9 @@
 				171061861C3BE0B400BBF297 /* GalleryViewController.h */,
 				171061871C3BE0B400BBF297 /* GalleryViewController.m */,
 				171061881C3BE0B400BBF297 /* GalleryViewController.xib */,
+				33D4DC1E1F1F8EDF0065C545 /* CardViewController.h */,
+				33D4DC1F1F1F8EDF0065C545 /* CardViewController.m */,
+				33D4DC201F1F8EDF0065C545 /* CardViewController.xib */,
 				01308D9913491C3500453707 /* Supporting Files */,
 			);
 			name = SwipeViewExample;
@@ -188,6 +196,11 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0500;
+				TargetAttributes = {
+					01308D8D13491C3500453707 = {
+						DevelopmentTeam = EEZ4F9EAVJ;
+					};
+				};
 			};
 			buildConfigurationList = 01308D8813491C3500453707 /* Build configuration list for PBXProject "SwipeViewExample" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -215,6 +228,7 @@
 				171061951C3BE41000BBF297 /* image5.jpg in Resources */,
 				0148359513A36C3700E687AC /* MainWindow.xib in Resources */,
 				0148359613A36C3700E687AC /* ExampleViewController.xib in Resources */,
+				33D4DC221F1F8EDF0065C545 /* CardViewController.xib in Resources */,
 				171061851C3BDAE300BBF297 /* ListViewController.xib in Resources */,
 				013F5C60168A59F500355CAD /* Default-568h@2x.png in Resources */,
 				171061941C3BE41000BBF297 /* image4.jpg in Resources */,
@@ -233,6 +247,7 @@
 			files = (
 				171061841C3BDAE300BBF297 /* ListViewController.m in Sources */,
 				0148358813A36C2000E687AC /* main.m in Sources */,
+				33D4DC211F1F8EDF0065C545 /* CardViewController.m in Sources */,
 				0148359313A36C3700E687AC /* ExampleViewController.m in Sources */,
 				0148359413A36C3700E687AC /* AppDelegate.m in Sources */,
 				01715D4917FD6D980060B615 /* SwipeView.m in Sources */,
@@ -311,6 +326,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = EEZ4F9EAVJ;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SwipeViewExample-Prefix.pch";
@@ -330,6 +346,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				COPY_PHASE_STRIP = YES;
+				DEVELOPMENT_TEAM = EEZ4F9EAVJ;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SwipeViewExample-Prefix.pch";
 				GCC_THUMB_SUPPORT = NO;

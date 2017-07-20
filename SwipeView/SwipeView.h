@@ -48,54 +48,32 @@
 #import <UIKit/UIKit.h>
 
 
-typedef NS_ENUM(NSUInteger, SwipeViewAlignment)
-{
-    SwipeViewAlignmentEdge = 0,
-    SwipeViewAlignmentCenter
-};
-
-
 @protocol SwipeViewDataSource, SwipeViewDelegate;
 
 @interface SwipeView : UIView
 
 @property (nonatomic, weak_delegate) id<SwipeViewDataSource> dataSource;
 @property (nonatomic, weak_delegate) id<SwipeViewDelegate> delegate;
-@property (nonatomic, readonly) NSInteger numberOfItems;
-@property (nonatomic, readonly) NSInteger numberOfPages;
-@property (nonatomic, readonly) CGSize itemSize;
-@property (nonatomic, assign) NSInteger itemsPerPage;
-@property (nonatomic, assign) BOOL truncateFinalPage;
+
+@property (nonatomic, assign) CGFloat itemWidth;
 @property (nonatomic, strong, readonly) NSArray *indexesForVisibleItems;
 @property (nonatomic, strong, readonly) NSArray *visibleItemViews;
 @property (nonatomic, strong, readonly) UIView *currentItemView;
-@property (nonatomic, assign) NSInteger currentItemIndex;
-@property (nonatomic, assign) NSInteger currentPage;
-@property (nonatomic, assign) SwipeViewAlignment alignment;
-@property (nonatomic, assign) CGFloat scrollOffset;
+@property (nonatomic, assign, readonly) NSInteger currentItemIndex;
+@property (nonatomic, assign, readonly) NSInteger itemCount;
 @property (nonatomic, assign, getter = isPagingEnabled) BOOL pagingEnabled;
 @property (nonatomic, assign, getter = isScrollEnabled) BOOL scrollEnabled;
-@property (nonatomic, assign, getter = isWrapEnabled) BOOL wrapEnabled;
 @property (nonatomic, assign) BOOL delaysContentTouches;
 @property (nonatomic, assign) BOOL bounces;
-@property (nonatomic, assign) float decelerationRate;
-@property (nonatomic, assign) CGFloat autoscroll;
 @property (nonatomic, readonly, getter = isDragging) BOOL dragging;
 @property (nonatomic, readonly, getter = isDecelerating) BOOL decelerating;
-@property (nonatomic, readonly, getter = isScrolling) BOOL scrolling;
-@property (nonatomic, assign) BOOL defersItemViewLoading;
-@property (nonatomic, assign, getter = isVertical) BOOL vertical;
+@property (nonatomic, assign) UIEdgeInsets edgeInsets;
+@property (nonatomic, assign) CGFloat separatorWidth;
 
 - (void)reloadData;
-- (void)reloadItemAtIndex:(NSInteger)index;
-- (void)scrollByOffset:(CGFloat)offset duration:(NSTimeInterval)duration;
-- (void)scrollToOffset:(CGFloat)offset duration:(NSTimeInterval)duration;
-- (void)scrollByNumberOfItems:(NSInteger)itemCount duration:(NSTimeInterval)duration;
-- (void)scrollToItemAtIndex:(NSInteger)index duration:(NSTimeInterval)duration;
-- (void)scrollToPage:(NSInteger)page duration:(NSTimeInterval)duration;
+- (void)scrollToItemAtIndex:(NSInteger)index;
 - (UIView *)itemViewAtIndex:(NSInteger)index;
 - (NSInteger)indexOfItemView:(UIView *)view;
-- (NSInteger)indexOfItemViewOrSubview:(UIView *)view;
 
 - (UIView *)dequeueReusableViewWithIdentifier:(NSString *)identifier;
 
@@ -114,7 +92,7 @@ typedef NS_ENUM(NSUInteger, SwipeViewAlignment)
 @protocol SwipeViewDelegate <NSObject>
 @optional
 
-- (CGSize)swipeViewItemSize:(SwipeView *)swipeView;
+- (CGFloat)swipeView:(SwipeView *)swipeView widthForItem:(NSInteger)index;
 - (void)swipeViewDidScroll:(SwipeView *)swipeView;
 - (void)swipeViewCurrentItemIndexDidChange:(SwipeView *)swipeView;
 - (void)swipeViewWillBeginDragging:(SwipeView *)swipeView;
